@@ -1,0 +1,27 @@
+version: 2
+
+models:
+  - name: stg_customers
+    description: "Cleaned customer records staging model."
+    columns:
+      - name: customer_id
+        description: "Unique customer identifier."
+        tests:
+          - not_null
+          - unique
+      - name: email
+        description: "Customer email, normalized to lowercase."
+        tests:
+          - not_null
+      - name: first_name
+        description: "Customer first name, in proper case."
+      - name: last_name
+        description: "Customer last name, in proper case."
+      - name: join_date
+        description: "Date the customer joined."
+      - name: location
+        description: "Customer’s location."
+      - name: reviewer_level
+        description: "Customer reviewer level indicator."
+      - name: _loaded_at
+        description: "Timestamp when record was loaded into Silver layer."
