@@ -25,3 +25,37 @@ models:
         description: "Customer reviewer level indicator."
       - name: _loaded_at
         description: "Timestamp when record was loaded into Silver layer."
+
+  - name: stg_reviews
+    description: "Standardized customers' reviews on products."
+    columns: 
+      - name: review_id
+        description: "Unique identifier for each product review made "
+        tests:
+          - not_null
+          - unique
+      - name: customer_id
+        description: "Unique customer identifier."
+        tests:
+           - not_null
+      - name: product_id
+        description:  "Unique Product Identifier"
+        tests:
+          - not_null
+      - name: review_date
+        description: "Date of review"
+      - name: title
+        description: "Short headline summarizing the review for each product"
+      - name: review_text
+        description: "The written feedback provided by customers about our products"
+      - name: rating
+        description: "Numeric value reflecting customer satisfaction on a predefined scale of 1-5"
+      - name: total_votes
+        description: "Total number of votes the review received"
+      - name: helpful_votes
+        description: "Number of users who found the review helpful." 
+      - name: sentiment_score
+        description: "Value measuring how positive or negative the review is" 
+      - name: verified_purchase
+        description: "Boolean flag indicating if the reviewer purchased the product through a verified channel."
+        
