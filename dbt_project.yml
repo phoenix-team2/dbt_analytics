@@ -36,20 +36,11 @@ clean-targets:         # directories to be removed by `dbt clean`
 # using the `{{ config(...) }}` macro.
 
 models:
-  my_new_project:
+  bronze:
+    +materialized: table
 
-    # Bronze—raw tables landed from Airbyte
-    bronze:
-      +schema: bronze
-      +materialized: table
-      
-    # Silver—your cleaned/staged models
-    silver:
-      +schema: silver
-      +materialized: table
+  silver:
+    +materialized: table
 
-    # Gold—your facts & dimensions
-    gold:
-      +schema: gold
-      +materialized: table
-
+  gold:
+    +materialized: table
