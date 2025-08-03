@@ -1,0 +1,2 @@
+# Apply code ownership to all dbt models
+/models/* @phoenix-team2/dbt-reviewers
