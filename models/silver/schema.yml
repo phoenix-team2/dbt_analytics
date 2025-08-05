@@ -26,36 +26,30 @@ models:
       - name: _loaded_at
         description: "Timestamp when record was loaded into Silver layer."
 
-  - name: stg_reviews
-    description: "Standardized customers' reviews on products."
-    columns: 
-      - name: review_id
-        description: "Unique identifier for each product review made "
+  - name: stg_products
+    description: "Cleansed product records staging model."
+    columns:
+      - name: product_id
+        description: "Unque product identifier."
         tests:
           - not_null
           - unique
-      - name: customer_id
-        description: "Unique customer identifier."
-        tests:
-           - not_null
-      - name: product_id
-        description:  "Unique Product Identifier"
+      - name: product_name
+        description: "Product name in proper case."
         tests:
           - not_null
-      - name: review_date
-        description: "Date of review"
-      - name: title
-        description: "Short headline summarizing the review for each product"
-      - name: review_text
-        description: "The written feedback provided by customers about our products"
-      - name: rating
-        description: "Numeric value reflecting customer satisfaction on a predefined scale of 1-5"
-      - name: total_votes
-        description: "Total number of votes the review received"
-      - name: helpful_votes
-        description: "Number of users who found the review helpful." 
-      - name: sentiment_score
-        description: "Value measuring how positive or negative the review is" 
-      - name: verified_purchase
-        description: "Boolean flag indicating if the reviewer purchased the product through a verified channel."
-        
+      - name: brand
+        description: "Product brand in proper case."
+      - name: category
+        description: 'Product category in proper case.'
+      - name: price
+        description: "Price of product in two decimal place."
+      - name: launch_date
+        description: "Date the product was launched."
+      - name: total_review
+        description: "Product total review at launched date."
+      - name: average_rating
+        description: "Product average rating at launched date."
+      - name: _loaded_at
+        description: "Timestamp when record was loaded into the silver layer."
+>>>>>>> eae634ee19ba1167305ecad12e0cc9e638af1874
