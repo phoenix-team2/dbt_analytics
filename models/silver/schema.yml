@@ -25,3 +25,30 @@ models:
         description: "Customer reviewer level indicator."
       - name: _loaded_at
         description: "Timestamp when record was loaded into Silver layer."
+
+  - name: stg_products
+    description: "Cleansed product records staging model."
+    columns:
+      - name: product_id
+        description: "Unque product identifier."
+        tests:
+          - not_null
+          - unique
+      - name: product_name
+        description: "Product name in proper case."
+        tests:
+          - not_null
+      - name: brand
+        description: "Product brand in proper case."
+      - name: category
+        description: 'Product category in proper case.'
+      - name: price
+        description: "Price of product in two decimal place."
+      - name: launch_date
+        description: "Date the product was launched."
+      - name: total_review
+        description: "Product total review at launched date."
+      - name: average_rating
+        description: "Product average rating at launched date."
+      - name: _loaded_at
+        description: "Timestamp when record was loaded into the silver layer."
