@@ -12,7 +12,7 @@ dedup as
         cast(review_date as date)   as review_date,     
         initcap(trim(title))        as review_title,
         trim(review_text)           as review_text,
-        rating,
+        cast (rating as int)        as rating,
         total_votes,
         helpful_votes,
         sentiment_score,
