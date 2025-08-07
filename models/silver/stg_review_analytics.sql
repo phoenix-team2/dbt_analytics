@@ -1,3 +1,4 @@
+
 WITH raw AS (
   SELECT *
   FROM {{ source('bronze', 'review_analytics') }}
