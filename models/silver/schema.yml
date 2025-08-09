@@ -52,3 +52,26 @@ models:
         description: "Product average rating at launched date."
       - name: _loaded_at
         description: "Timestamp when record was loaded into the silver layer."
+
+  - name: stg_review_responses
+    description: "Cleaned and standardized data from bronze.review_responses"
+    columns:
+      - name: response_id
+        description: "Unique ID of the response"
+        tests:
+          - not_null
+          - unique   
+      - name: review_id
+        description: "Unique ID of the review"
+        tests:
+          - not_null
+      - name: response_date
+        description: "Date of the response"
+      - name: response_text
+        description: "Text content of the response"
+      - name: responder_name
+        description: "Name of the person who responded"
+      - name: responder_type
+        description: "Type of responder (e.g customer service, manufacturer)"
+      - name: _loaded_at
+        description: "Timestamp when record was loaded into Silver layer."
