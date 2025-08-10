@@ -112,3 +112,31 @@ models:
         description: "Type of responder (e.g customer service, manufacturer)"
       - name: _loaded_at
         description: "Timestamp when record was loaded into Silver layer."
+  
+  - name: stg_review_analytics
+    description: "Cleansed review_analytics records staging model."
+    columns:
+      - name: product_id
+        description: "Unque product identifier."
+        tests:
+          - not_null
+          - unique
+      - name: one_star_review
+        description: "Number of one star review for a product id."
+      - name: two_star_review
+        description: "Number of two star review for a product id."
+      - name: three_star_review
+        description: "Number of three star review for a product id."
+      - name: four_star_review
+        description: "Number of four star review for a product id."
+      - name: five_star_review
+        description: "Number of five star review for a product id."
+      - name: total_review
+        description: "Product total review for each product id."
+      - name: average_sentiment
+        description: "Average sentiment for each product id."
+      - name: average_rating
+        description: "Average rating for each product id."
+      - name: _loaded_at
+        description: "Timestamp when record was loaded into the silver layer."
+
