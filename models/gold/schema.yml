@@ -46,3 +46,22 @@ models:
               field: location_id
       - name: _loaded_at
         description: "ETL load timestamp."
+        
+  - name: dim_products
+    description: "Product dimenion table. One row per product_id."
+    columns:
+      - name: product_id
+        description: "Unique product identifier."
+        tests: 
+          - not_null
+          - unique
+      - name: product_name
+        description: "Official Product name from source."
+      - name: brand
+        description: "Brand name."
+      - name: category
+        description: "Product category."
+      - name: price
+        description: "Latest known prce in numeric format."
+      - name: launch_date
+        description: "Date product was first launched or made available."
