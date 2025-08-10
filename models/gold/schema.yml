@@ -66,7 +66,6 @@ models:
       - name: launch_date
         description: "Date product was first launched or made available."
 
-<<<<<<< HEAD
   - name: dim_date
     description: "Date dimension where date are generated from a start_date = 2024-01-01 to current_date."
     columns:
@@ -132,8 +131,7 @@ models:
       - name: verified_purchase
         description: "A boolean to record if a purchase is verified or not"
 
-          
-=======
+      
   - name: dim_review_analytics
     description: "Aggregated review metrics per product. One row per product_id. This model aggregates multiple records from the silver layer if present,ensuring exactly one record per product_id with summed counts and weighted averages."
     columns:
@@ -161,4 +159,3 @@ models:
       - name: average_sentiment
         description: "Average sentiment score"
 
->>>>>>> d1ced6a41cea3f07bfda6ff1a0788adbbe47176a
