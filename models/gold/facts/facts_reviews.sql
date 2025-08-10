@@ -1,7 +1,7 @@
 with reviews as (
     select * from {{ref ('stg_reviews')}}
 )
-
+select min(review_date) from reviews
 select 
 r.review_id,
 r.product_id,
@@ -12,7 +12,7 @@ r.rating,
 r.total_votes,
 r.helpful_votes,
 r.sentiment_score,
-r.verified_purchase
+r.verified_purchase,
 from reviews as r
 join {{ref('dim_customers')}} as cus
 on r.customer_id = cus.customer_id
