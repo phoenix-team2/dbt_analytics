@@ -62,10 +62,11 @@ models:
       - name: category
         description: "Product category."
       - name: price
-        description: "Latest known prce in numeric format."
+        description: "Latest known price in numeric format."
       - name: launch_date
         description: "Date product was first launched or made available."
 
+<<<<<<< HEAD
   - name: dim_date
     description: "Date dimension where date are generated from a start_date = 2024-01-01 to current_date."
     columns:
@@ -132,3 +133,32 @@ models:
         description: "A boolean to record if a purchase is verified or not"
 
           
+=======
+  - name: dim_review_analytics
+    description: "Aggregated review metrics per product. One row per product_id. This model aggregates multiple records from the silver layer if present,ensuring exactly one record per product_id with summed counts and weighted averages."
+    columns:
+      - name: product_id
+        description: "Product identifier (foreign key to dim_product.product_id)."
+        tests:
+          - not_null
+          - relationships:
+              field: product_id
+              to: ref('dim_products')
+      - name: total_reviews
+        description: "Total number of reviews for the product."
+      - name: average_rating
+        description: "Average rating across all reviews."
+      - name: five_star
+        description: "Count of 5-star reviews"
+      - name: four_star
+        description: "Count of 4-star reviews"
+      - name: three_star
+        description: "Count of 3-star reviews"
+      - name: two_star
+        description: "Count of 2-star reviews"
+      - name: one_star
+        description: "Count of 1-star reviews"
+      - name: average_sentiment
+        description: "Average sentiment score"
+
+>>>>>>> d1ced6a41cea3f07bfda6ff1a0788adbbe47176a
