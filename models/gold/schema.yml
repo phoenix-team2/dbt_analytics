@@ -1,0 +1,48 @@
+version: 2
+
+models:
+  - name: dim_location
+    description: "Unique geographic locations parsed from stg_customers.location (Country/State/City)."
+    columns:
+      - name: location_id
+        description: "Deterministic MD5 hex hash of (country|state_or_region|city)."
+        tests:
+          - not_null
+          - unique
+      - name: country
+        description: "Uppercased country name parsed from location."
+        tests:
+          - not_null
+      - name: state_or_region
+        description: "Uppercased state, province, or region (nullable)."
+      - name: city
+        description: "Uppercased city (nullable)."
+      - name: _loaded_at
+        description: "ETL load timestamp."
+
+  - name: dim_customers
+    description: "Customer dimension enriched with location surrogate key."
+    columns:
+      - name: customer_id
+        description: "Business key for customer."
+        tests:
+          - not_null
+          - unique
+      - name: email
+        description: "Customer email (normalized in Silver)."
+      - name: first_name
+        description: "Customer first name."
+      - name: last_name
+        description: "Customer last name."
+      - name: join_date
+        description: "Customer join date."
+      - name: reviewer_level
+        description: "Reviewer level from source."
+      - name: location_id
+        description: "Surrogate key to dim_location."
+        tests:
+          - relationships:
+              to: ref('dim_location')
+              field: location_id
+      - name: _loaded_at
+        description: "ETL load timestamp."
