@@ -1,5 +1,5 @@
 -- Grain: one row per review_id
--- dim_products, dim_customers and dim_date
+
 with fact_responses as 
 (
     select
