@@ -159,3 +159,30 @@ models:
       - name: average_sentiment
         description: "Average sentiment score"
 
+  - name: fact_responses
+    description: "Provides information about responses on poduct reviews"
+    columns:
+      - name: response_id
+        description: "Unique identifier for each response given to a unique review "
+        tests: 
+          - not_null
+          - unique
+      - name: review_id
+        description: "Unique identifier for each product review made "
+        tests:
+           - relationships:
+              to: ref('stg_reviews')
+              field: review_id
+      - name: date_id
+        description: 'data id that links the fact_response to dim_date.'
+        tests:
+         - relationships:
+            to: ref('dim_date')
+            field: date_id
+      - name: responder_type
+        description: "Indicates the class of team providing the response"
+       
+    
+
+
+
