@@ -18,7 +18,7 @@ stg_prod as (
     ) as rn  -- deduplicates by product_id
     from raw
 )
-select  product_id, rn from stg_prod
+
 
 select
     product_id,
